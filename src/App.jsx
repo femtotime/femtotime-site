@@ -1,16 +1,10 @@
 
-// React-based multipage website for rental flat with dynamic pricing (10% cheaper than Booking.com)
-// Pages: Home, About, Gallery, Booking
-// Using React Router, Tailwind CSS
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 
 const getBookingComPrice = async () => {
-  // Simulated fetch — replace with real API/scraper/backend endpoint
-  const bookingComPrice = 100; // in EUR (example static)
-  return (bookingComPrice * 0.9).toFixed(2); // apply 10% discount
+  const bookingComPrice = 100;
+  return (bookingComPrice * 0.9).toFixed(2);
 };
 
 const Navbar = () => (
