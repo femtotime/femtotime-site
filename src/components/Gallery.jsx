@@ -1,37 +1,26 @@
-import { useState } from 'react';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
-
-const images = [
-  { src: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304409.jpg' },
-  { src: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304384.jpg' },
-  { src: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304377.jpg' },
-  { src: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304397.jpg' },
-  { src: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304419.jpg' },
-];
-
 export function Gallery() {
-  const [index, setIndex] = useState(-1);
+  const images = [
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304409.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304384.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304377.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304397.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304419.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304412.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304390.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304381.jpg',
+    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/539304402.jpg'
+  ];
 
   return (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {images.map((image, i) => (
-          <img
-            key={i}
-            src={image.src}
-            alt={`Apartment view ${i + 1}`}
-            className="cursor-pointer rounded shadow-md hover:opacity-80"
-            onClick={() => setIndex(i)}
-          />
-        ))}
-      </div>
-      <Lightbox
-        open={index >= 0}
-        index={index}
-        close={() => setIndex(-1)}
-        slides={images}
-      />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {images.map((src, index) => (
+        <img
+          key={index}
+          src={src}
+          alt={`Apartment photo ${index + 1}`}
+          className="rounded-lg shadow-lg w-full h-72 object-cover transform transition-transform hover:scale-105"
+        />
+      ))}
     </div>
   );
 }
