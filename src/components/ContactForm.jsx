@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { format } from 'date-fns';
 
-export function ContactForm() {
+export function ContactForm({ selectedDate }) {
   const [submitted, setSubmitted] = useState(false);
 
   return submitted ? (
@@ -41,6 +42,17 @@ export function ContactForm() {
           name="email"
           required
           className="w-full border rounded px-3 py-2"
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 font-medium">Preferred Date</label>
+        <input
+          type="text"
+          name="date"
+          value={selectedDate ? format(selectedDate, 'PPP') : ''}
+          readOnly
+          className="w-full border rounded px-3 py-2 bg-gray-100"
         />
       </div>
 
